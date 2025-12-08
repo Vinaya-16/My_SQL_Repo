@@ -1,0 +1,8 @@
+-- FIND THE SALES PRICE FOR EACH BY DIVIDING SALES BY QUANTITY
+
+SELECT
+OrderID,
+Sales,
+Quantity,
+Sales/NULLIF(Quantity, 0) AS Price 
+FROM Sales.Orders

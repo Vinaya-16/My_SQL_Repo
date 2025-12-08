@@ -1,0 +1,10 @@
+-- RETRIEVE CUSTOMER DETAILS WITH ABBREVIATED COUNTRY CODE
+
+SELECT 
+CustomerID, Country,
+CASE Country
+	WHEN 'Germany' THEN 'GER'
+	WHEN 'USA' THEN 'USA'
+	ELSE 'N/A'
+END CountryCode
+FROM Sales.Customers

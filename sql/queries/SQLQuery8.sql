@@ -1,0 +1,7 @@
+-- FIND CUSTOMERS WITHOUT ORDERS AND ORDERS WITHOUT CUSTOMERS 
+
+SELECT *
+FROM customers c
+FULL JOIN orders o
+ON c.id = o.customer_id
+WHERE c.id IS NULL OR o.customer_id IS NULL

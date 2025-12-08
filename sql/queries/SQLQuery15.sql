@@ -1,0 +1,19 @@
+-- CLEAN THE DATA
+
+-- FIRST ACCESS ALL THE DATA FROM THE TABLE CUSTOMERS
+SELECT * FROM Customers
+
+-- FIND THE DATA WHERE LEADIING SPACES OR TRAILING SPACES ENCOUNTERES FROM THE FIRST NAME COLUMN
+SELECT * FROM customers
+WHERE first_name != TRIM(first_name)
+
+-- IDENTIFY THE NEED FOR TRIMMING DATA 
+SELECT 
+first_name,
+LEN(first_name) AS len_before_trim,
+LEN(TRIM(first_name)) AS len_after_trim
+FROM customers
+
+-- TRIM THE DATA MANUALLY
+SELECT TRIM(first_name) as cleaned_name
+FROM Customers

@@ -1,0 +1,9 @@
+-- TIME GAP ANALYSIS
+-- FIND THE NUMBER OF DAYS BETWEEN EACH ORDER AND ITS PREVIOUS ORDER
+
+SELECT
+OrderID, 
+OrderDate CurrentDate,
+LAG(OrderDate) OVER (ORDER BY OrderDate) AS PreviousOrderDate,
+DATEDIFF(DAY, LAG(OrderDate) OVER (ORDER BY OrderDate), OrderDate) AS NbrOfDays
+FROM Sales.Orders

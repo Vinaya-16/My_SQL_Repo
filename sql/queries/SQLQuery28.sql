@@ -1,0 +1,19 @@
+-- FIND THE AVERAGE SCORES OF CUSTOMERS AND TREAT NULLS AS 0
+-- ADD ADDITIONAL PROVIDE DETAILS SUCH CustomerID AND LastName
+
+SELECT
+CustomerID,
+LastName,
+Score,
+AVG(Score) OVER() AS Avg_Score,
+CASE 
+	WHEN Score IS NULL THEN 0
+	ELSE Score
+END CleanScore,
+AVG(
+	CASE
+		WHEN Score IS NULL THEN 0
+		ELSE score
+	END
+) OVER() AS avg_score
+FROM Sales.Customers

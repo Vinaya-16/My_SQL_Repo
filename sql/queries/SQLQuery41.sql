@@ -1,0 +1,12 @@
+-- FIND THE TOP HIGHEST SALES FOR EACH PRODUCT
+
+SELECT
+*
+FROM
+(
+	SELECT
+	OrderID, ProductID, Sales,
+	ROW_NUMBER() OVER(PARTITION BY ProductID ORDER BY Sales DESC) AS SaleRank
+	FROM Sales.Orders 
+) AS t
+WHERE SaleRank = 1

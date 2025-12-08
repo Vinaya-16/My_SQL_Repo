@@ -1,0 +1,11 @@
+-- FIND THE TOTAL SALES FOR EACH ORDER STATUS,
+-- ONLY FOR TWO PRODUCTS 101, 102
+
+SELECT
+OrderID,
+ProductID,
+OrderDate,
+OrderStatus,
+SUM(Sales) OVER(PARTITION BY OrderStatus) AS TotalSales
+FROM Sales.Orders
+WHERE ProductID IN (101, 102)

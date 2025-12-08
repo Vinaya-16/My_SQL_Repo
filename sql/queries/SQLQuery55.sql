@@ -1,0 +1,19 @@
+-- CREATE SEQUENCE OF NUMBERS OR PRIMARY KEY
+
+WITH CTE_seq AS
+(
+	SELECT
+	1 AS MyNumber
+	
+	UNION ALL
+
+	SELECT
+	MyNumber + 1
+	FROM CTE_seq
+	WHERE MyNumber <= 9
+
+)
+
+SELECT
+*
+FROM CTE_seq 

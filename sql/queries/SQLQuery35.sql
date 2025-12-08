@@ -1,0 +1,8 @@
+-- RANK CUSTOMERS BASED ON THEIR TOTAL SALES
+
+SELECT
+CustomerID,
+SUM(Sales) AS TotalSales,
+RANK() OVER(ORDER BY SUM(Sales) DESC) AS RankCustomers
+FROM Sales.Orders
+GROUP BY CustomerID

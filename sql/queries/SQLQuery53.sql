@@ -1,0 +1,6 @@
+-- SHOW ALL CUSTOMER DETAILS AND FIND THE TOTAL ORDERS OF EACH CUSTOMER
+
+SELECT
+*,
+(SELECT COUNT(*) AS TotalOrders FROM Sales.Orders o WHERE o.CustomerID = c.CustomerID) AS TotalOrders
+FROM Sales.Customers c

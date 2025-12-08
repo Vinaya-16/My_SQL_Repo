@@ -1,0 +1,10 @@
+-- UPDATE ALL CUSTOMERS WITH SCORE NULL TO SCORE = 0
+
+SELECT * FROM customers
+WHERE score IS NULL
+
+UPDATE customers
+SET score = 0
+WHERE score IS NULL
+
+SELECT * FROM customers
